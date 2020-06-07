@@ -50,7 +50,7 @@ class TGBot(MapBot):
             try:
                 context.bot.send_message(
                     chat_id=update.effective_chat.id,
-                    text="Welcome to Male' Maps Bot. Type in the address you wish to search. You can also query this bot inline"
+                    text="Welcome to Sh.Funadhoo Maps Bot. Type in the address you wish to search. You can also query this bot inline"
                 )
             except Exception as e:
                 pass

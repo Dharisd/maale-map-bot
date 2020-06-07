@@ -96,4 +96,6 @@ class TGBot(MapBot):
         updater.dispatcher.add_handler(InlineQueryHandler(inline_query_handler))
 
     async def setup_listener(self, app: FastAPI, host=None):
-            pass
+        hook_path = f"{WEBHOOK_PATH}/telegram/process/"
+        app.mount(hook_path, self.app)
+        self.updater.bot.set_webhook(f"{host}{hook_path}")

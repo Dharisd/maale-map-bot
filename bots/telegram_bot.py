@@ -50,7 +50,7 @@ class TGBot(MapBot):
             try:
                 context.bot.send_message(
                     chat_id=update.effective_chat.id,
-                    text="Welcome to Sh.Funadhoo Maps Bot. Type in the address you wish to search. You can also query this bot inline"
+                    text="Welcome to Funadhoo Maps Bot. Type in the address you wish to search. You can also query this bot inline"
                 )
             except Exception as e:
                 pass
@@ -98,4 +98,4 @@ class TGBot(MapBot):
     async def setup_listener(self, app: FastAPI, host=None):
         hook_path = f"{WEBHOOK_PATH}/telegram/process/"
         app.mount(hook_path, self.app)
-        self.updater.bot.set_webhook(f"{host}{hook_path}")
+        self.updater.bot.set_webhook(f"{host}:8443{hook_path}")

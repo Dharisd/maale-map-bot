@@ -18,7 +18,7 @@ class SQLiteDatasource(AddressSource):
     """
 
     def __init__(self, db_source):
-        self.__dbconn = sqlite3.connect(db_source)
+        self.__dbconn = sqlite3.connect(db_source,check_same_thread=False)
         self.__df = pd.read_sql_query("SELECT name from addresses", self.__dbconn)
 
     def __query_df(self, q):
